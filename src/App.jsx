@@ -81,11 +81,11 @@ function TodoApp() {
 
   return (
     <div className="container">
-      <h1>To-Do List</h1>
+      <h1>To-Do List App</h1>
       <h6>By: Mac Adrian Po Tan</h6>
       <div className="popup" style={{ display: popupVisible ? 'flex' : 'none' }}>
         <div className="popup-content">
-          <span className="close" onClick={handlePopupClose} style={{color: 'white', fontSize: '50px'}}>&times; &nbsp;</span>
+          <span className="close" onClick={handlePopupClose} style={{color: 'black', fontSize: '50px'}}>&times; &nbsp;</span>
           <h2>{editingIndex !== null ? 'Edit Task' : 'Add Task'}</h2>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
           <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description"></textarea>
@@ -98,7 +98,7 @@ function TodoApp() {
     <h2>Delete Task</h2>
     <p>Are you sure you want to delete this task?</p>
     <div>
-      <button onClick={handleDeleteConfirmation}>Delete</button>
+      <button className="delete-button" onClick={handleDeleteConfirmation}>Delete</button>
       <button onClick={handleCancelDelete}>Cancel</button>
     </div>
   </div>
@@ -108,7 +108,7 @@ function TodoApp() {
         setTitle('');
         setDescription('');
         setEditingIndex(null);
-      }}>Add Task with Popup</button>
+      }}>Add Task</button><br />
       <ul>
         {todos.map((todo, index) => (
           <li key={index} style={{ textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
