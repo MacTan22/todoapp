@@ -1,0 +1,102 @@
+.container {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc; /* Add border */
+  padding: 20px; /* Add padding for better spacing */
+  width: 80%; /* Adjust width */
+  max-width: 600px; /* Set maximum width */
+  height: 80%; /* Adjust height */
+  max-height: 600px; /* Set maximum height */
+  overflow: auto; /* Enable scrolling if content exceeds the container's dimensions */
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 10px;
+}
+
+ul {
+  max-height: 300px; /* Adjust as needed */
+  overflow-y: auto;
+  margin-top: 20px; 
+  width: 90%;
+}
+
+/* Apply highlight effect to list items */
+li:hover {
+  background-color: #f0f0f0; /* Light gray background color */
+}
+
+/* Align list item content to the left */
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+/* Align text to the left */
+li span {
+  text-align: left;
+}
+
+/* Style delete button */
+li button {
+  background-color: #ff6347; /* Red color */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Webkit (Safari/Chrome) scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb on hover */
+}
