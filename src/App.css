@@ -9,7 +9,7 @@
   width: 80%; /* Adjust width */
   max-width: 600px; /* Set maximum width */
   height: 94.55vh; /* Adjust height to fill viewport */
-  overflow: auto; /* Enable scrolling if content exceeds the container's dimensions */
+  overflow: auto; 
 }
 
 .popup {
@@ -48,18 +48,16 @@ button {
 }
 
 ul {
-  max-height: 500px; /* Adjust as needed */
+  max-height: 500px;
   overflow-y: auto;
   margin-top: 20px; 
   width: 90%;
 }
 
-/* Apply highlight effect to list items */
 li:hover {
-  background-color: #f0f0f0; /* Light gray background color */
+  background-color: #f0f0f0; 
 }
 
-/* Align list item content to the left */
 li {
   display: flex;
   align-items: center;
@@ -67,42 +65,39 @@ li {
   padding: 5px 0;
 }
 
-/* Align text to the left */
 li span {
   text-align: left;
 }
 
-/* Style delete button */
 li button {
-  background-color: #ff6347; /* Red color */
-  color: #fff; /* White text color */
+  background-color: #ff6347; 
+  color: #fff; 
   border: none;
   padding: 5px 10px;
   border-radius: 3px;
   cursor: pointer;
 }
 
-/* Webkit (Safari/Chrome) scrollbar styles */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background color of the scrollbar track */
+  background: #f1f1f1; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners of the scrollbar thumb */
+  background: #888;
+  border-radius: 4px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb on hover */
+  background: #555; 
 }
 
 .delete-button {
-  background-color: #ff6347; /* Red color */
-  color: #fff; /* White text color */
+  background-color: #ff6347; 
+  color: #fff; 
   border: none;
   padding: 5px 10px;
   border-radius: 3px;
@@ -110,5 +105,41 @@ li button {
 }
 
 .delete-button:hover {
-  background-color: #d9534f; /* Darker red color on hover */
+  background-color: #d9534f; 
+}
+
+.cancel-button {
+  background-color: #facdcd; 
+  color: #000000; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: lightcoral; 
+  color: #ffffff; 
+}
+
+.go-button {
+  background-color: rgb(218, 245, 218); 
+  color: #000000; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+} 
+
+.go-button:hover {
+  background-color: lightgreen; 
+}
+
+h6 a {
+  color: black; 
+  text-decoration: none; 
+}
+
+h6 a:hover {
+  color: darkblue; 
 }

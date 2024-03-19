@@ -45,14 +45,13 @@ function TodoApp() {
     setDeleteConfirmationVisible(false);
   };
   
-  // Add a new function to cancel delete action
   const handleCancelDelete = () => {
     setDeleteConfirmationVisible(false);
   };
 
   const handleDeleteTodo = (index) => {
     setDeleteConfirmationVisible(true);
-    setEditingIndex(index); // Set the editing index to the index of the item to be deleted
+    setEditingIndex(index); 
   };
 
 
@@ -82,24 +81,23 @@ function TodoApp() {
   return (
     <div className="container">
       <h1>To-Do List App</h1>
-      <h6>By: Mac Adrian Po Tan</h6>
+      <h6>By: <a href="https://bit.ly/A3-4Guide">Mac Adrian Po Tan</a></h6>
       <div className="popup" style={{ display: popupVisible ? 'flex' : 'none' }}>
-        <div className="popup-content">
-          <span className="close" onClick={handlePopupClose} style={{color: 'black', fontSize: '50px'}}>&times; &nbsp;</span>
-          <h2>{editingIndex !== null ? 'Edit Task' : 'Add Task'}</h2>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description"></textarea>
-          <button onClick={handlePopupSubmit}>{editingIndex !== null ? 'Save' : 'Add'}</button>
-        </div>
-      </div>
+  <div className="popup-content">
+    <h2>{editingIndex !== null ? 'Edit Task' : 'Add Task'}</h2>
+    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
+    <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description"></textarea>
+    <button className="go-button"onClick={handlePopupSubmit}>{editingIndex !== null ? 'Save' : 'Add'}</button>&nbsp;
+    <button className="cancel-button" onClick={handlePopupClose}>Cancel</button>
+  </div>
+</div>
       <div className="popup" style={{ display: deleteConfirmationVisible ? 'flex' : 'none' }}>
   <div className="popup-content">
-    <span className="close" onClick={handleCancelDelete} style={{ color: 'white', fontSize: '50px' }}>&times; &nbsp;</span>
     <h2>Delete Task</h2>
     <p>Are you sure you want to delete this task?</p>
     <div>
-      <button className="delete-button" onClick={handleDeleteConfirmation}>Delete</button>
-      <button onClick={handleCancelDelete}>Cancel</button>
+      <button className="delete-button" onClick={handleDeleteConfirmation}>Delete</button>&nbsp;
+      <button className="cancel-button" onClick={handleCancelDelete}>Cancel</button>
     </div>
   </div>
 </div>
