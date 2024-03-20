@@ -9,8 +9,7 @@ function TodoApp() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [deleteConfirmationVisible, setDeleteConfirmationVisible] = useState(false);
-
-
+  
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -35,7 +34,7 @@ function TodoApp() {
     const [originalTitle, originalDescription] = originalTask.split(':');
     setTitle(originalTitle.trim());
     setDescription(originalDescription.trim());
-    setPopupVisible(true); // Set popupVisible to true to show the edit popup
+    setPopupVisible(true);
   };
   
   const handleDeleteConfirmation = () => {
@@ -54,7 +53,6 @@ function TodoApp() {
     setEditingIndex(index); 
   };
 
-
   const handlePopupClose = () => {
     setPopupVisible(false);
     setTitle('');
@@ -62,6 +60,16 @@ function TodoApp() {
     setInputValue('');
   };
 
+  const handleToggleDone = (index) => {
+    const updatedTodos = [...todos];
+    if (updatedTodos[index].includes("Done")) {
+      updatedTodos[index] = updatedTodos[index].replace(" - Done", "");
+    } else {
+      updatedTodos[index] += " - Done";
+    }
+    setTodos(updatedTodos);
+  };
+  
   const handlePopupSubmit = () => {
     if (title.trim() !== '' && description.trim() !== '') {
       if (editingIndex !== null) {
@@ -78,10 +86,32 @@ function TodoApp() {
     }
   };
 
+  const handleDeleteAll = () => {
+    const isConfirmed = window.confirm("Are you sure you want to delete all tasks?");
+    if (isConfirmed) {
+      setTodos([]);
+    }
+  };  
+  
+  const handleMarkAllDone = () => {
+    const allDone = todos.every(todo => todo.includes("Done")); // Check if all todos are marked as done
+  
+    const updatedTodos = todos.map(todo => {
+      if (allDone) {
+        return todo.replace(" - Done", ""); // Undo if all todos are currently marked as done
+      } else {
+        return todo + " - Done"; // Mark as done if not all todos are currently marked as done
+      }
+    });
+  
+    setTodos(updatedTodos);
+  };
+  
   return (
+    <div className='color'>
     <div className="container">
       <h1>To-Do List App</h1>
-      <h6>By: <a href="https://bit.ly/A3-4Guide">Mac Adrian Po Tan</a></h6>
+      <p>Got things to do? List it <a href="https://bit.ly/A3-4Guide">Here</a></p>
       <div className="popup" style={{ display: popupVisible ? 'flex' : 'none' }}>
   <div className="popup-content">
     <h2>{editingIndex !== null ? 'Edit Task' : 'Add Task'}</h2>
@@ -108,18 +138,32 @@ function TodoApp() {
         setEditingIndex(null);
       }}>Add Task</button><br />
       <ul>
-        {todos.map((todo, index) => (
-          <li key={index} style={{ textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>{todo}</span>
-            <div>
-              <i className="fas fa-edit" onClick={() => handleEditTodo(index)} style={{ cursor: 'pointer', marginRight: '10px' }}></i>
-              <i className="fas fa-trash-alt" onClick={() => handleDeleteTodo(index)} style={{ cursor: 'pointer' }}></i>
-            </div>
-          </li>
-        ))}
+      {todos.map((todo, index) => (
+  <li key={index} style={{ textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <span style={{ textDecoration: todo.includes("Done") ? 'line-through' : 'none' }}>{todo}</span>
+    <div>
+      {todo.includes("Done") ? (
+        <i className="fas fa-undo-alt" onClick={() => handleToggleDone(index)} style={{ cursor: 'pointer', marginRight: '10px', color: 'green' }} title="Undo"></i>
+      ) : (
+        <i className="far fa-check-circle" onClick={() => handleToggleDone(index)} style={{ cursor: 'pointer', marginRight: '10px' }} title="Mark Done"></i>
+      )}
+      <i className="fas fa-edit" onClick={() => handleEditTodo(index)} style={{ cursor: 'pointer', marginRight: '10px' }} title="Edit"></i>
+      <i className="fas fa-trash-alt" onClick={() => handleDeleteTodo(index)} style={{ cursor: 'pointer' }} title="Delete"></i>
+    </div>
+  </li>
+))}
       </ul>
+  {todos.length > 0 && ( 
+    <div className="delete-all-fixed">
+      <button onClick={handleDeleteAll}>Delete All</button>
+      <button onClick={handleMarkAllDone}>{todos.every(todo => todo.includes("Done")) ? 'Undo' : 'Mark All as Done'}</button>
+
+    </div>
+  )}
+    </div>
     </div>
   );
 }
+
 
 export default TodoApp;

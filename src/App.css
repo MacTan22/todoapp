@@ -1,14 +1,20 @@
+.color {
+  background-color: #f5f5f5;
+  color: #797979;
+}
+
 .container {
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid #ccc; /* Add border */
-  padding: 20px; /* Add padding for better spacing */
-  width: 80%; /* Adjust width */
-  max-width: 600px; /* Set maximum width */
-  height: 94.55vh; /* Adjust height to fill viewport */
+  border: 1px solid #ccc; 
+  padding: 20px; 
+  width: 80%; 
+  border-radius: 15px;
+  max-width: 620px; 
+  height: 90%;
   overflow: auto; 
 }
 
@@ -45,14 +51,16 @@ textarea {
 
 button {
   margin-top: 10px;
+  color: #797979;
 }
 
 ul {
-  max-height: 500px;
+  max-height: 300px; 
   overflow-y: auto;
   margin-top: 20px; 
   width: 90%;
 }
+
 
 li:hover {
   background-color: #f0f0f0; 
@@ -96,7 +104,7 @@ li button {
 }
 
 .delete-button {
-  background-color: #ff6347; 
+  background-color: #FF7F4D; 
   color: #fff; 
   border: none;
   padding: 5px 10px;
@@ -105,12 +113,12 @@ li button {
 }
 
 .delete-button:hover {
-  background-color: #d9534f; 
+  background-color: #F4512C; 
 }
 
 .cancel-button {
-  background-color: #facdcd; 
-  color: #000000; 
+  background-color: #9D71BC; 
+  color: #f5f5f5; 
   border: none;
   padding: 5px 10px;
   border-radius: 3px;
@@ -118,13 +126,13 @@ li button {
 }
 
 .cancel-button:hover {
-  background-color: lightcoral; 
-  color: #ffffff; 
+  background-color: #5E1B89; 
+  color: #f5f5f5; 
 }
 
 .go-button {
-  background-color: rgb(218, 245, 218); 
-  color: #000000; 
+  background-color: #FF7F4D; 
+  color: #f5f5f5; 
   border: none;
   padding: 5px 10px;
   border-radius: 3px;
@@ -132,14 +140,15 @@ li button {
 } 
 
 .go-button:hover {
-  background-color: lightgreen; 
+  background-color: #F4512C; 
+  color: #f5f5f5;
 }
 
-h6 a {
+p a {
   color: black; 
   text-decoration: none; 
 }
 
-h6 a:hover {
-  color: darkblue; 
+p a:hover {
+  color: rgb(0, 0, 0); 
 }
