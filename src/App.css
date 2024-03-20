@@ -114,10 +114,6 @@ li button {
   cursor: pointer;
 }
 
-.delete-button:hover {
-  background-color: #F4512C; 
-}
-
 .cancel-button,
 .mark-all-button {
   background-color: #9D71BC; 
@@ -145,6 +141,7 @@ li button {
 } 
 
 .go-button:hover,
+.delete-button:hover,
 .delete-all-button:hover {
   background-color: #F4512C; 
   color: #f5f5f5;

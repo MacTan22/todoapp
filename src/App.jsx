@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import pic from './image.png';
+
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -27,25 +29,6 @@ function TodoApp() {
   const handleConfirmDeleteAll = () => {
     setTodos([]);
     setDeleteAllConfirmationVisible(false);
-  };
-
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleAddTodo = () => {
-    if (inputValue.trim() !== '') {
-      if (editingIndex !== null) {
-        const newTodos = [...todos];
-        newTodos[editingIndex] = inputValue;
-        setTodos(newTodos);
-        setEditingIndex(null);
-      } else {
-        setTodos([...todos, inputValue]);
-      }
-      setInputValue('');
-    }
   };
 
   const handleEditTodo = (index) => {
@@ -109,28 +92,27 @@ function TodoApp() {
   const handleMarkAllDone = () => {
     const allDone = todos.every(todo => todo.includes("Done"));
   
-    const updatedTodos = todos.map(todo => {
-      if (allDone) {
-        return todo.replace(" - Done", ""); 
+  const updatedTodos = todos.map(todo => {
+    if (allDone) {
+      return todo.replace(" - Done", ""); 
       } else {
-        return todo + " - Done";
+      return todo + " - Done";
       }
-    });
-  
-    setTodos(updatedTodos);
+  });
+  setTodos(updatedTodos);
   };
   
   return (
     <div className='color'>
     <div className="container">  
-    <img src="image.png" alt="Image" style={{ width: '18%', height: 'auto', maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: '7%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1 }} /><br />
+    <img src={pic} alt="Image" style={{ width: '18%', height: 'auto', maxWidth: '100%', maxHeight: '100%', position: 'absolute', top: '7%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1 }} /><br />
       <h1>To-Do List</h1>
       <p>Got things to do? List it <a href="https://bit.ly/A3-4Guide">Here</a></p>
       <div className="popup" style={{ display: popupVisible ? 'flex' : 'none' }}>
   <div className="popup-content">
     <h2>{editingIndex !== null ? 'Edit Task' : 'Add Task'}</h2>
-    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
-    <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description"></textarea>
+    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" style={{ backgroundColor: '#f5f5f5' }} />
+    <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" style={{ backgroundColor: '#f5f5f5' }} ></textarea>
     <button className="go-button"onClick={handlePopupSubmit}>{editingIndex !== null ? 'Save' : 'Add'}</button>&nbsp;
     <button className="cancel-button" onClick={handlePopupClose}>Cancel</button>
   </div>
@@ -171,14 +153,7 @@ function TodoApp() {
     setDescription('');
     setEditingIndex(null);
   }}
-  style={{
-    backgroundImage: 'linear-gradient(to right, #5E1B89, #F4512C)',
-    color: 'white',
-    border: 'none',
-  }}
->
-  Add Task
-</button>
+  style={{ backgroundImage: 'linear-gradient(to right, #5E1B89, #F4512C)', color: 'white', border: 'none', }}> Add Task </button>
 
       <ul>
       {todos.map((todo, index) => (
@@ -206,6 +181,5 @@ function TodoApp() {
     </div>
   );
 }
-
 
 export default TodoApp;
